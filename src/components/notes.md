@@ -11,6 +11,9 @@ User Experience
 		- Added state on PlantCard
 [] I can search for plants by their name and see a filtered list of plants.
 		-display filter that maps and uses includes to get values from searchbar
+		-filter plants should be in PlantPage
+		-need callback function passed down into search
+		-onChange sends data back to plant page
 
 		{
       "id": 1,

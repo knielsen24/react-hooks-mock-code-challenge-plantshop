@@ -19,10 +19,24 @@ function PlantPage() {
 		console.log(newPlant)
 	}
 
+	//		use map and includes to filter items
+	// 	this should be updated in state 
+
+	const handleSearch = (search) => {
+		if (search === "") return true
+		const filteredPlants = plants.filter(plant => {
+			if (plant.name.toLowerCase().includes(search.toLowerCase())){
+				return plant
+			}
+		})
+		
+		setPlants(filteredPlants)
+	}
+
 	return (
 		<main>
 			<NewPlantForm onAddPlant={onAddPlant} />
-			<Search />
+			<Search handleSearch={handleSearch} />
 			<PlantList plants={plants} />
 		</main>
 	);

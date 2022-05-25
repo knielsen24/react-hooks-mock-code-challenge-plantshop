@@ -17,7 +17,7 @@ function NewPlantForm({ onAddPlant }) {
 		// console.log(e.target.name)
 		setAddPlant({ [e.target.name]: e.target.value } )
 	}
-	console.log(addPlant)
+	//console.log(addPlant)
 
 	const handleSubmit = () => {
 		const newPlant = {
