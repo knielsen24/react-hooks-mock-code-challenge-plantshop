@@ -20,10 +20,15 @@ function PlantPage() {
 		setPlants(updatedList)
 	}
 
-	//		use map and includes to filter items
-	// 	this should be updated in state
-	//   spread opterator
-  
+	const handleDelete = (id) => {
+		fetch(baseUrl + `/${id}`, {
+			method: 'DELETE'
+		})
+		const filteredDelete = plants.filter(plant => plant.id !== id)
+		setPlants(filteredDelete)
+		// const deleteItem = plants.find()
+	}
+
 	const handleSearch = (search) => {
 		const filteredPlants = plants.filter(plant => {
 			if (search.toLowerCase() === "") return plant
@@ -31,7 +36,6 @@ function PlantPage() {
 				return plant
 			}
 		})
-		
 		setPlants(filteredPlants)
 	}
 
@@ -39,7 +43,7 @@ function PlantPage() {
 		<main>
 			<NewPlantForm onAddPlant={onAddPlant} />
 			<Search handleSearch={handleSearch} />
-			<PlantList plants={plants} />
+			<PlantList plants={plants} handleDelete={handleDelete} />
 		</main>
 	);
 }

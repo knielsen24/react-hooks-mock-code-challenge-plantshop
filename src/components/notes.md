@@ -21,3 +21,5 @@ User Experience
       "image": "./images/aloe.jpg",
       "price": 15.99
     },
+
+[x] I can delete a plant and it is still gone when I refresh the page.
