@@ -13,24 +13,16 @@ function NewPlantForm({ onAddPlant }) {
 	// how do we handle onSubmit?
 
 	const handleChange = (e) => {
-		// console.log(e.target.value)
+		const name = e.target.name
+		const value = e.target.value
 		// console.log(e.target.name)
-		setAddPlant({ [e.target.name]: e.target.value } )
-	}
-	//console.log(addPlant)
-
-	const handleSubmit = () => {
-		const newPlant = {
-			// id: "",
-			name: addPlant.name,
-			image: addPlant.image,
-			price: addPlant.price,
-		}
-		onAddPlant(newPlant)
+		setAddPlant(values => ({...values, [name]: value }) )
 	}
 
-
-
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		onAddPlant(addPlant)
+	}
 
 	return (
 		<div className="new-plant-form">

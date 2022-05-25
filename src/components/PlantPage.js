@@ -16,15 +16,17 @@ function PlantPage() {
 	}, [])
 	
 	const onAddPlant = (newPlant) => {
-		console.log(newPlant)
+		const updatedList = [...plants, newPlant]
+		setPlants(updatedList)
 	}
 
 	//		use map and includes to filter items
-	// 	this should be updated in state 
-
+	// 	this should be updated in state
+	//   spread opterator
+  
 	const handleSearch = (search) => {
-		if (search === "") return true
 		const filteredPlants = plants.filter(plant => {
+			if (search.toLowerCase() === "") return plant
 			if (plant.name.toLowerCase().includes(search.toLowerCase())){
 				return plant
 			}
