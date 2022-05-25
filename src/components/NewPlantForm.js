@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function NewPlantForm({ onAddPlant }) {
 
 	const [addPlant, setAddPlant] = useState({
-		// id: "",
+		id: "",
 		name: "",
 		image: "",
 		price: "",

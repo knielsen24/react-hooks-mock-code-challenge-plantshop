@@ -30,9 +30,10 @@ function PlantPage() {
 	}
 
 	const handleSearch = (search) => {
+		const lowerSearch = search.toLowerCase()
 		const filteredPlants = plants.filter(plant => {
-			if (search.toLowerCase() === "") return plant
-			if (plant.name.toLowerCase().includes(search.toLowerCase())){
+			if (lowerSearch === "") return true
+			if (plant.name.toLowerCase().includes(lowerSearch)){
 				return plant
 			}
 		})
