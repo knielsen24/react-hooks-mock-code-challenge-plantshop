@@ -6,7 +6,7 @@ function NewPlantForm({ onAddPlant }) {
 		id: "",
 		name: "",
 		image: "",
-		price: "",
+		price: parseInt(""),
 	})
 
 	// we need to put the data into a new object
@@ -15,8 +15,7 @@ function NewPlantForm({ onAddPlant }) {
 	const handleChange = (e) => {
 		const name = e.target.name
 		const value = e.target.value
-		// console.log(e.target.name)
-		setAddPlant(values => ({...values, [name]: value }) )
+		setAddPlant(plants => ({...plants, [name]: value }) )
 	}
 
 	const handleSubmit = (e) => {

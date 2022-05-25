@@ -6,6 +6,7 @@ import Search from "./Search";
 function PlantPage() {
 	
 	const [plants, setPlants] = useState([])
+	const [searchTerm, setSearchTerm] = useState("")
 	
 	const baseUrl = 'http://localhost:6001/plants' 
 	
@@ -29,22 +30,19 @@ function PlantPage() {
 		// const deleteItem = plants.find()
 	}
 
-	const handleSearch = (search) => {
-		const lowerSearch = search.toLowerCase()
-		const filteredPlants = plants.filter(plant => {
-			if (lowerSearch === "") return true
-			if (plant.name.toLowerCase().includes(lowerSearch)){
-				return plant
-			}
-		})
-		setPlants(filteredPlants)
-	}
+	const onSearchChange = (e) =>	setSearchTerm(e.target.value.toLowerCase())
+
+	const plantsToDisplay = plants.filter(plant => {
+		const searchName = plant.name.toLowerCase().includes(searchTerm)
+		if (searchTerm === "") return true
+		else if (searchTerm === searchTerm) return searchName
+	})
 
 	return (
 		<main>
 			<NewPlantForm onAddPlant={onAddPlant} />
-			<Search handleSearch={handleSearch} />
-			<PlantList plants={plants} handleDelete={handleDelete} />
+			<Search onSearchChange={onSearchChange} searchTerm={searchTerm} />
+			<PlantList plants={plantsToDisplay} handleDelete={handleDelete} />
 		</main>
 	);
 }
